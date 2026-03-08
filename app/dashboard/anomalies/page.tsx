@@ -1,14 +1,6 @@
-export default function MlAnomalyDetectionPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-2xl font-bold text-brand-white">Welcome</h1>
-    </div>
-  );
-}
-
-/*
-// Original implementation — commented out before public push
-
+/**
+ * ML Anomaly Detection page — AI-powered behavioral analysis and anomaly alerts.
+ */
 "use client";
 
 import {
@@ -25,6 +17,7 @@ import RecentAnomalyAlerts from "@/src/components/dashboard/RecentAnomalyAlerts"
 export default function MlAnomalyDetectionPage() {
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div>
         <h1 className="text-xl sm:text-2xl font-bold text-brand-white font-(family-name:--font-inter)">
           ML Anomaly Detection
@@ -33,6 +26,8 @@ export default function MlAnomalyDetectionPage() {
           AI-powered behavioral analysis and anomaly alerts
         </p>
       </div>
+
+      {/* KPI row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {anomalyKpis.map((kpi) => (
           <AnomalyStatCard
@@ -46,9 +41,12 @@ export default function MlAnomalyDetectionPage() {
           />
         ))}
       </div>
+
+      {/* EWMA Heatmap */}
       <EwmaHeatmap data={ewmaHeatmapData} dayLabels={ewmaDayLabels} />
+
+      {/* Recent Alerts */}
       <RecentAnomalyAlerts alerts={recentAnomalyAlerts} />
     </div>
   );
 }
-*/

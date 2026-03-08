@@ -1,14 +1,7 @@
-export default function ComplianceGovernancePage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-2xl font-bold text-brand-white">Welcome</h1>
-    </div>
-  );
-}
-
-/*
-// Original implementation — commented out before public push
-
+/**
+ * Compliance & Governance page — regulatory alignment, approval workflows,
+ * and audit-ready reporting.
+ */
 "use client";
 
 import {
@@ -28,6 +21,7 @@ import GeneratedReports from "@/src/components/dashboard/GeneratedReports";
 export default function ComplianceGovernancePage() {
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-brand-white font-(family-name:--font-inter)">
@@ -41,6 +35,8 @@ export default function ComplianceGovernancePage() {
           Export All Reports
         </button>
       </div>
+
+      {/* KPI row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {complianceKpis.map((kpi) => (
           <ComplianceStatCard
@@ -54,6 +50,8 @@ export default function ComplianceGovernancePage() {
           />
         ))}
       </div>
+
+      {/* Frameworks + Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
         <div className="lg:col-span-3">
           <ComplianceFrameworkCards frameworks={complianceFrameworks} />
@@ -62,9 +60,12 @@ export default function ComplianceGovernancePage() {
           <SecurityPostureRadar data={securityPostureRadar} />
         </div>
       </div>
+
+      {/* Workflows */}
       <GovernanceWorkflows workflows={governanceWorkflows} />
+
+      {/* Reports */}
       <GeneratedReports reports={generatedReports} />
     </div>
   );
 }
-*/

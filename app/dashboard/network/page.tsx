@@ -1,14 +1,7 @@
-export default function NetworkAnalyticsPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-2xl font-bold text-brand-white">Welcome</h1>
-    </div>
-  );
-}
-
-/*
-// Original implementation — commented out before public push
-
+/**
+ * Network Analytics page — topology graph, throughput chart,
+ * protocol distribution, top destinations, top conversations.
+ */
 "use client";
 
 import {
@@ -31,6 +24,7 @@ import TopConversationsTable from "@/src/components/dashboard/TopConversationsTa
 export default function NetworkAnalyticsPage() {
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div>
         <h1 className="text-xl sm:text-2xl font-bold text-brand-white font-(family-name:--font-inter)">
           Network Analytics
@@ -39,6 +33,8 @@ export default function NetworkAnalyticsPage() {
           Real-time network topology and traffic analysis
         </p>
       </div>
+
+      {/* KPI row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {networkKpis.map((kpi) => (
           <NetworkStatCard
@@ -52,11 +48,17 @@ export default function NetworkAnalyticsPage() {
           />
         ))}
       </div>
+
+      {/* Topology */}
       <CommunicationTopology nodes={topologyNodes} edges={topologyEdges} />
+
+      {/* Charts row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <ThroughputChart data={throughputData} />
         <ProtocolDistributionChart data={protocolDistData} />
       </div>
+
+      {/* Bottom row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <TopDestinationsChart data={topDestinations} />
         <TopConversationsTable data={topConversations} />
@@ -64,4 +66,3 @@ export default function NetworkAnalyticsPage() {
     </div>
   );
 }
-*/

@@ -1,14 +1,7 @@
-export default function VulnerabilityManagementPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-2xl font-bold text-brand-white">Welcome</h1>
-    </div>
-  );
-}
-
-/*
-// Original implementation — commented out before public push
-
+/**
+ * Vulnerability Management page — CVE tracking, severity analysis,
+ * risk correlation, and attack propagation paths.
+ */
 "use client";
 
 import {
@@ -28,6 +21,7 @@ import AttackPropagationPaths from "@/src/components/dashboard/AttackPropagation
 export default function VulnerabilityManagementPage() {
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div>
         <h1 className="text-xl sm:text-2xl font-bold text-brand-white font-(family-name:--font-inter)">
           Vulnerability Management
@@ -36,6 +30,8 @@ export default function VulnerabilityManagementPage() {
           Continuous vulnerability detection correlated with business impact
         </p>
       </div>
+
+      {/* KPI row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {vulnKpis.map((kpi) => (
           <VulnStatCard
@@ -49,13 +45,18 @@ export default function VulnerabilityManagementPage() {
           />
         ))}
       </div>
+
+      {/* Charts row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <VulnSeverityChart data={vulnSeverityData} />
         <RiskCorrelationChart data={riskCorrelationData} />
       </div>
+
+      {/* CVE Table */}
       <PriorityCvesTable cves={priorityCves} />
+
+      {/* Attack Paths */}
       <AttackPropagationPaths paths={attackPaths} />
     </div>
   );
 }
-*/

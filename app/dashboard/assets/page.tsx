@@ -1,14 +1,7 @@
-export default function AssetDiscoveryPage() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <h1 className="text-2xl font-bold text-brand-white">Welcome</h1>
-    </div>
-  );
-}
-
-/*
-// Original implementation — commented out before public push
-
+/**
+ * Asset Discovery page — displays the full asset inventory table
+ * with search filtering by name, MAC, or IP.
+ */
 "use client";
 
 import { useState, useMemo } from "react";
@@ -32,6 +25,7 @@ export default function AssetDiscoveryPage() {
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-brand-white font-(family-name:--font-inter)">
@@ -41,6 +35,8 @@ export default function AssetDiscoveryPage() {
             Complete inventory of discovered network assets
           </p>
         </div>
+
+        {/* Search */}
         <div className="flex items-center gap-2 rounded-lg bg-brand-surface px-3 py-2 w-full sm:w-64">
           <IoSearchOutline className="text-brand-muted shrink-0" />
           <input
@@ -52,12 +48,15 @@ export default function AssetDiscoveryPage() {
           />
         </div>
       </div>
+
+      {/* Asset count */}
       <div className="flex items-center gap-2 text-sm text-brand-muted">
         <IoServerOutline className="text-brand-primary" />
         <span className="font-semibold text-brand-white">{filtered.length} Assets Found</span>
       </div>
+
+      {/* Table */}
       <AssetInventoryTable assets={filtered} />
     </div>
   );
 }
-*/
